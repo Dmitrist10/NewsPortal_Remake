@@ -1,0 +1,45 @@
+{% extends 'default.html' %} 
+
+{% load custom_tags %}
+
+{% block title %}
+All Posts
+{% endblock title %}
+
+{% block content %}
+<main>
+    <h1>All posts:</h1>
+    {% comment %} <p>Date: {{ time_now|date:"D M Y" }}</p> {% endcomment %}
+    <p>Date: {% current_time %}</p>
+    <p>Time: {% current_time '%H:%M:%S'  %}</p>
+    {% block PostsAmount %}
+    {% endblock PostsAmount %}
+    <table>
+        {% block content_table %}
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Rating</th>
+                <th>Author</th>
+                <th>Release Date</th>
+                <th>ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in posts %}
+            <tr>
+                <td><a href="{{ p.id }}">{{ p.title }}</a></td>
+                <td><span class="yellowText">{{ p.rating }} stars</span></td>
+                <td>{{ p.author.user.username }}</td>
+                <td>{{ p.creationDate }}</td>
+                <td>{{ p.id }}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+        {% endblock content_table %}
+
+    </table>
+</main>
+
+{% endblock content %}

@@ -1,0 +1,34 @@
+{% extends 'default.html' %} 
+
+{% load censor_filter %}
+
+{% block title %}
+Post: {{ post.title }}
+{% endblock title %}
+ 
+<!-- В контенте на странице мы выводим все товары -->
+{% block content %}
+<h1>post info:</h1>
+<h2>releas date: {{ post.creationDate }}</h2>
+<h2 style="fontsize=30px;">{{ post.title|censor }}</h2>
+<hr style="color: #b72323ff">
+<h2 style="fontsize=20px; width=100%">{{ post.text|censor }}</h2>
+<footer>
+    {% comment %} <a href="http://127.0.0.1:8000/newsPortal/posts">
+        back to all posts
+    </a> {% endcomment %}
+    <ul>
+        <li>
+            <a href="http://127.0.0.1:8000/newsPortal/posts">to posts</a> 
+        </li>
+        <li>
+            <a href="http://127.0.0.1:8000/newsPortal/news">to news</a> 
+        </li>
+        <li>
+            <a href="http://127.0.0.1:8000/newsPortal/articles">to articles</a> 
+        </li>
+    </ul>
+    
+    
+</footer>
+{% endblock content %}

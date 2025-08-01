@@ -1,0 +1,35 @@
+{% extends 'NewsPortal/PostsBase.html' %} 
+
+{% load censor_filter %}
+
+{% block title %}
+All news
+{% endblock title %}
+
+    {% block PostsAmount %}
+    <p>News amount: {{ news|length }}</p>
+    {% endblock PostsAmount %}
+
+{% block content_table %}
+<thead>
+    <tr>
+        <th>Title</th>
+        <th>Rating</th>
+        <th>Author</th>
+        <th>Release Date</th>
+        <th>ID</th>
+    </tr>
+</thead>
+<tbody>
+    {% for n in news %}
+            <tr>
+                <td><a href="http://127.0.0.1:8000/newsPortal/posts/{{ n.id }}">{{ n.title|censor }}</a></td>
+                <td><span class="yellowText">{{ n.rating }} stars</span></td>
+                <td>{{ n.author.user.username }}</td>
+                <td>{{ n.creationDate }}</td>
+                <td>{{ n.id }}</td>
+            </tr>
+            {% endfor %}
+
+</tbody>
+{% endblock content_table %}

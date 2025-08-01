@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="{% static 'Style/default.css' %}" rel="stylesheet" />
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'posts_list' %}">All Posts</a></li>
+            <li><a href="{% url 'news_list' %}">All News</a></li>
+            <li><a href="{% url 'articles_list' %}">All Articles</a></li>
+        </ul>
+    </nav>
+    {% block content %}{% endblock content %}
+
+</body>
+
+</html>
