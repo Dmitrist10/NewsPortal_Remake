@@ -9,7 +9,7 @@ Post: {{ post.title }}
 <!-- В контенте на странице мы выводим все товары -->
 {% block content %}
 <h1>post info:</h1>
-<h2>releas date: {{ post.creationDate }}</h2>
+<h2>releas date: {{ post.creationDate|date:"d.m.Y" }}</h2>
 <h2 style="fontsize=30px;">{{ post.title|censor }}</h2>
 <hr style="color: #b72323ff">
 <h2 style="fontsize=20px; width=100%">{{ post.text|censor }}</h2>

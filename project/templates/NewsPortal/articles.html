@@ -17,6 +17,7 @@ All articles
         <th>Rating</th>
         <th>Author</th>
         <th>Release Date</th>
+        <th>first words</th>
         <th>ID</th>
     </tr>
 </thead>
@@ -27,6 +28,7 @@ All articles
                 <td><span class="yellowText">{{ a.rating }} stars</span></td>
                 <td>{{ a.author.user.username }}</td>
                 <td>{{ a.creationDate }}</td>
+                <td>{{ a|censor }}</td>
                 <td>{{ a.id }}</td>
             </tr>
             {% endfor %}
